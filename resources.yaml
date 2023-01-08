@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nuxt-helloworld-app
+  labels:
+    app: nuxt-helloworld
+spec:
+  containers:
+    - name: nuxt-helloworld-app
+      image: localhost:32000/nuxt-helloworld
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nuxt-helloworld-service
+spec:
+  selector:
+    app: nuxt-helloworld
+  ports:
+    - port: 80
